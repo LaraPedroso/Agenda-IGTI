@@ -1,0 +1,42 @@
+{
+  "calendars": [
+    {
+      "id": 1,
+      "name": "Pessoal",
+      "color": "#8E24AA"
+    },
+    {
+      "id": 2,
+      "name": "Trabalho",
+      "color": "#7CB342"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "date": "2021-05-23",
+      "time": "14:00",
+      "desc": "Reunião com o chefe",
+      "calendarId": 2
+    },
+    {
+      "id": 2,
+      "date": "2021-05-28",
+      "desc": "Dar vacina no cachorro",
+      "calendarId": 1
+    },
+    {
+      "id": 3,
+      "date": "2021-06-03",
+      "time": "08:30",
+      "desc": "Consulta ortopedista",
+      "calendarId": 1
+    },
+    {
+      "id": 4,
+      "date": "2021-06-03",
+      "desc": "Entrega do projeto",
+      "calendarId": 2
+    }
+  ]
+}
