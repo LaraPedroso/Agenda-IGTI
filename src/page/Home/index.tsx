@@ -1,4 +1,4 @@
-import { CalendarScreen } from '../../template/CalendarScreen'
+import { CalendarScreen } from '../../template/Home'
 
 export function PageHome() {
   return (

@@ -1,5 +1,8 @@
 // import { getEventsEndpoint } from './components/backend'
 import { PageHome } from './page/Home'
+import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from 'global/styles/theme'
 
 function App() {
   // getEventsEndpoint().then((events) => {
@@ -9,9 +12,10 @@ function App() {
   // })
 
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <PageHome />
-    </div>
+      <CssBaseline />
+    </ThemeProvider>
   )
 }
 
