@@ -1,12 +1,13 @@
 import { TableHead, TableRow, TableCell, TableBody, Box } from '@mui/material'
 import { TableContainerCustom } from 'components/Home/TableContainerCustom'
-// import { BoxCustom } from 'components/Home/Title'
+import { TitleCustom } from 'components/Home/Title'
 import { DayWeek } from 'template/Home/Data'
 
 export function CalendarScreen() {
   return (
     <Box sx={{ display: 'flex', height: '100%', alignItems: 'stretch' }}>
-      {/* <BoxCustom /> */}
+      <TitleCustom title={'Diary TS'} />
+
       <TableContainerCustom>
         <TableHead>
           <TableRow>

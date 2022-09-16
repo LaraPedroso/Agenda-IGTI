@@ -1,6 +1,12 @@
 import { Box } from '@mui/material'
+import { ButtonHome } from 'components/Home/Button'
+import { CheckboxDiary } from 'components/Home/Checkbox'
 
-export function BoxCustom( desc?: string ) {
+interface PropsTitle {
+  title?: string
+}
+
+export function TitleCustom({ title }: PropsTitle) {
   return (
     <Box
       sx={{
@@ -9,7 +15,9 @@ export function BoxCustom( desc?: string ) {
         p: '8px 16px'
       }}
     >
-      <h2>{desc}</h2>
+      <h2>{title}</h2>
+      <ButtonHome />
+      <CheckboxDiary />
     </Box>
   )
 }
