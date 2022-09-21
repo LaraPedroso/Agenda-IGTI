@@ -1,37 +1,47 @@
+import { IEvent } from 'db/backend'
 import DayWeek from 'template/Home/Data'
 
 interface ICalendarCell {
   date: string
+  events: IEvent[]
 }
 
-export function generateCalendar(date: string): ICalendarCell[][] {
+export function generateCalendar(
+  date: string,
+  allEvents: IEvent[]
+): ICalendarCell[][] {
+  // dias do calendario
   const weeks: ICalendarCell[][] = []
-  const jsDate = new Date(date + 'T10:00:00')
-  const firstDayOfMonth = new Date(jsDate.valueOf())
+  console.log('allEvents: ', allEvents)
+
+  // data
+  const jsDate = new Date(date + 'T12:00:00')
   const currentMonth = jsDate.getMonth()
 
-  firstDayOfMonth.setDate(1)
+  const currentDay = new Date(jsDate.valueOf())
+  currentDay.setDate(1)
 
-  const dayOfWeek = firstDayOfMonth.getDay()
-  firstDayOfMonth.setDate(1 - dayOfWeek)
+  const dayOfWeek = currentDay.getDay()
+  currentDay.setDate(1 - dayOfWeek)
 
   do {
     const week: ICalendarCell[] = []
 
     for (let i = 0; i < DayWeek.length; i++) {
-      const monthStr = (firstDayOfMonth.getMonth() + 1)
-        .toString()
-        .padStart(2, '0')
-      const DayStr = (firstDayOfMonth.getDate() + 1).toString().padStart(2, '0')
+      // const monthStr = (currentDay.getMonth() + 1).toString().padStart(2, '0')
 
-      const isoDate = `${firstDayOfMonth.getFullYear()}-${monthStr}-
-        ${DayStr}`
+      const dayStr = currentDay.getDate().toString().padStart(2, '0')
 
-      week.push({ date: isoDate })
-      firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1)
+      const isoDate = `${dayStr}`
+
+      week.push({
+        date: isoDate,
+        events: allEvents.filter((e) => e.date === isoDate)
+      })
+      currentDay.setDate(currentDay.getDate() + 1)
     }
     weeks.push(week)
-  } while (firstDayOfMonth.getMonth() === currentMonth)
+  } while (currentDay.getMonth() === currentMonth)
 
   return weeks
 }
